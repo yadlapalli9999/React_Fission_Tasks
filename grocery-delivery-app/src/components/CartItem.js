@@ -11,7 +11,7 @@ let CartItem = () =>{
          dispatch(calcTotal())
          dispatch(getTax())
          dispatch(getGrandTotal())
-     },[])
+     })
     return(
         <React.Fragment>
              <div className="container">
