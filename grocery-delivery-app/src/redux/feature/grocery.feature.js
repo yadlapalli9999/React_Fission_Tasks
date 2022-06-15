@@ -15,7 +15,13 @@ const grocerySlice = createSlice({
     initialState:initialState,
     reducers:{
         addToCart:(state,action)=>{
-           state.cartItems =[action.payload,...state.cartItems]
+          const existItem = state.cartItems.findIndex((item)=>item.id=== action.payload.id)
+          if(existItem !==-1){
+            state.cartItems[existItem].qty =1;
+          }
+          else{
+            state.cartItems =[action.payload,...state.cartItems]
+          }
         },
         incrQty:(state,action)=>{
         let cartItem = state.cartItems.findIndex((item)=>item.id === action.payload) 

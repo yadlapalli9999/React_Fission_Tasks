@@ -3,7 +3,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { calcTotal, checkOutAddress, getGrandTotal, getTax } from "../redux/feature/grocery.feature";
 let CheckOut = () =>{
-    let {subTotal,tax,groundTotal} = useSelector((state)=>{return state['grocery']})
+    let {subTotal,tax,groundTotal,cartItems} = useSelector((state)=>{return state['grocery']})
     let dispatch = useDispatch();
 let navigate = useNavigate();
     useEffect(()=>{
@@ -27,6 +27,7 @@ let navigate = useNavigate();
     let handleCheckout = (event)=>{
         event.preventDefault();
         dispatch(checkOutAddress(user))
+        cartItems = []
         navigate('/success')
     }
     return(

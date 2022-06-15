@@ -5,14 +5,12 @@ let Home = () =>{
     let [catgogry,setCatgogry] = useState('');
      let {grocerieTypes,groceries} = useSelector((state)=>{return state['grocery']}) 
      const filteredData = useMemo(()=>{
-         if(!catgogry || catgogry==='All') return groceries
          return groceries.filter(item => item.type === catgogry);  
-
      },[catgogry])
     return(
         <React.Fragment>
-            <section className="p-3">
-                <div className="container">
+            <section className="p-3" style={{marginTop:'5rem'}}>
+                <div className="container animated zoomIn">
                     <div className="row">
                         <div className="col">
                             <h3>Multiple Grocery Stores</h3>
@@ -22,7 +20,7 @@ let Home = () =>{
                 </div>
             </section>
             <div className="container mt-5 text-center">
-                <div className="row justify-content-center">
+                <div className="row justify-content-center animated slideInLeft">
                     <div className="col-md-4">
                         <select className="custom-select" onChange={(e)=>setCatgogry(e.target.value)}>
                             <option value="select your a grocery store">select your a grocery store</option>

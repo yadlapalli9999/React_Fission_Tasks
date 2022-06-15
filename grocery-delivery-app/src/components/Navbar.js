@@ -7,7 +7,7 @@ let Navbar = () =>{
 
     return(
         <React.Fragment>
-            <nav className="navbar navbar-dark bg-secondary navbar-expand-sm">
+            <nav className="navbar navbar-dark bg-secondary fixed-top navbar-expand-sm">
                 <div className="container">
                     <Link to="/" className="navbar-brand">React With Grocery Delivery App</Link>
                     <ul className="nav ml-auto text-white">

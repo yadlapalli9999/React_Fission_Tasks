@@ -129,7 +129,7 @@ export class GroceryService{
 } 
 
 export class GroceryTypeService{
-    static groceryTypeList =[{id:1,name:"All"},{id:2,name:"Amazon"},{id:3,name:"FlipKart"},{id:4,name:"Dunzo"}]
+    static groceryTypeList =[{id:1,name:"Amazon"},{id:2,name:"FlipKart"},{id:3,name:"Dunzo"}]
     static getAllGroceryType(){
         return this.groceryTypeList;
     }
