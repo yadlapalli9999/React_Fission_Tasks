@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import {useDispatch} from 'react-redux';
+import { toast } from "react-toastify";
 import { addToCart } from "../redux/feature/grocery.feature";
 
 let Card = ({item}) =>{
     let {image,name,price} = item;
+    let [btn,setBtn] = useState('AddCart')
     let dispatch = useDispatch();
     let handleAddToCart=(item)=>{
-        if(!item){
-          //dispatch(addToCart(item))
-          alert('alredy added in cart')
-
-        }
-        else{
-          //alert('alredy added in cart')
           dispatch(addToCart(item))
-        }
+          setBtn('Added')
+          toast.success('Added sucessfully')
     }
     return(
         <React.Fragment>
@@ -25,7 +21,7 @@ let Card = ({item}) =>{
             <div className="card-body">
               <div className="card-title">{name}</div>
               <span className="card-subtitle">Price: &#8377; {price}</span><br/>
-              <button type="button" onClick={()=>handleAddToCart(item)} className="btn purple-gradient btn-sm animated shake">AddCart</button>
+              <button type="button" onClick={()=>handleAddToCart(item)} className="btn purple-gradient btn-sm animated shake">{btn}</button>
             </div>
           </div>   
         </React.Fragment>
